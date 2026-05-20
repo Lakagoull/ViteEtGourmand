@@ -1,0 +1,116 @@
+/* --- CONFIGURATION GÉNÉRALE --- */
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: #FFFDF5;
+    margin: 0;
+    padding: 0;
+    /* On a enlevé le flex center ici pour que la navbar reste en haut */
+}
+
+/* --- LA NAVBAR (Thème Orange, Bordeaux, Vert) --- */
+.navbar {
+    background-color: #FFFDF5;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    border-bottom: 3px solid #800020; /* Bordure Bordeaux */
+    box-sizing: border-box;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: #2C3E50;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: #E67E22; /* Vert Fluo */
+}
+
+/* --- CONTENEURS ET FORMULAIRES --- */
+.container {
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.admin-form-container {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 700px; /* Un peu plus large pour les allergènes */
+    margin: 40px auto; /* Centre le formulaire horizontalement */
+}
+
+/* --- TABLEAUX (Pour Menus et Réservations) --- */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    margin-top: 20px;
+}
+
+.admin-table th {
+    background: #800020; /* Entête Bordeaux */
+    color: white;
+    padding: 12px;
+    text-align: left;
+}
+
+.admin-table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* --- BOUTONS ET INPUTS --- */
+h1 {
+    color: #2c3e50;
+    margin-bottom: 25px;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+}
+
+.form-group { margin-bottom: 20px; }
+
+input[type="text"], input[type="number"], textarea, select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.btn-submit {
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    padding: 15px;
+    width: 100%;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-submit:hover {
+    background-color: #219150;
+}
+
+/* Rend la table défilable horizontalement sur mobile */
+.admin-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+}

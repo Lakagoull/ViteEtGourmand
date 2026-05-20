@@ -1,0 +1,394 @@
+/* ==========================================================================
+   1. VARIABLES & RESET
+   ========================================================================== */
+:root {
+    --bordeaux: #800000;
+    --orange: #E67E22;
+    --creme: #FFFDF5;
+    --charbon: #2C3E50;
+    --blanc: #FFFFFF;
+    --gris-fond: #F9F9F9;
+    --gris-clair: #E0E0E0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: var(--creme);
+    color: var(--charbon);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ==========================================================================
+   2. HEADER & NAVIGATION
+   ========================================================================== */
+.main-header {
+    background: var(--creme);
+    padding: 10px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo img { height: 45px; }
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    margin: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--charbon);
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--bordeaux);
+}
+
+/* --- BLOC UTILISATEUR (NOM + DECO) --- */
+.nav-auth {
+    display: flex;
+    align-items: center;
+    min-width: 120px;
+    justify-content: flex-end;
+}
+
+.user-control {
+    display: flex !important;
+    flex-direction: column !important; /* Empile le nom et la déco */
+    align-items: center !important;
+    gap: 2px !important;
+}
+
+.user-badge {
+    background-color: var(--orange) !important;
+    color: white !important;
+    padding: 6px 18px !important;
+    border-radius: 20px !important;
+    font-weight: bold !important;
+    font-size: 0.85rem !important;
+    text-decoration: none !important;
+    display: block !important;
+    transition: 0.3s !important;
+    text-transform: capitalize;
+}
+
+.user-badge:hover {
+    background-color: var(--bordeaux) !important;
+    transform: translateY(-1px);
+}
+
+.logout-link {
+    font-size: 0.65rem !important;
+    color: var(--charbon) !important;
+    opacity: 0.7;
+    text-decoration: none !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.logout-link:hover {
+    opacity: 1;
+    color: var(--bordeaux) !important;
+    text-decoration: underline !important;
+}
+
+.btn-connexion {
+    background: var(--orange);
+    color: white;
+    padding: 10px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-connexion:hover {
+    background-color: #D35400;
+}
+
+
+/* ==========================================================================
+   3. PAGE MENU : TITRE ET RECHERCHE
+   ========================================================================== */
+.menu-intro {
+    text-align: center;
+    padding: 60px 0 30px;
+}
+
+.menu-intro h1 {
+    font-family: 'Playfair Display', serif;
+    color: var(--bordeaux);
+    font-size: 3rem;
+}
+
+/* La barre blanche avec ombre de ta maquette */
+.search-filter-bar {
+    display: flex;
+    background: white;
+    border: 1px solid var(--gris-clair);
+    border-radius: 12px;
+    padding: 15px;
+    margin: 30px auto 60px;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.search-input {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    border-right: 1px solid var(--gris-clair);
+}
+
+.search-input input {
+    border: none;
+    padding: 10px;
+    width: 90%;
+    outline: none;
+}
+
+.filter-select {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    color: #A0A0A0;
+    border-right: 1px solid var(--gris-clair);
+}
+
+.filter-select:last-child { border-right: none; }
+
+/* ==========================================================================
+   4. GRILLE DE PRODUITS (3 COLONNES)
+   ========================================================================== */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-bottom: 80px;
+}
+
+.menu-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+    border: 1px solid #f0f0f0;
+}
+
+.menu-card:hover { transform: translateY(-10px); }
+
+.card-img img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover; /* Empêche l'image d'être écrasée */
+}
+
+.card-content { padding: 25px; }
+
+.card-content h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--bordeaux);
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+}
+
+.card-content p {
+    color: #666;
+    font-size: 0.95rem;
+    height: 50px; /* Aligne le texte sur toutes les cartes */
+}
+
+.menu-price {
+    display: block;
+    color: var(--orange);
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin: 15px 0;
+}
+
+.btn-details {
+    background-color: var(--orange);
+    color: white;
+    border: none;
+    padding: 12px 0;
+    width: 100%;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* --- Nouveaux badges et infos sur les cartes --- */
+
+.card-img {
+    position: relative; /* Pour positionner le badge thème par-dessus */
+}
+
+/* Badge Thème (Noël, Pâques, etc.) */
+.badge-theme {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: var(--bordeaux);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Bloc infos (Personnes et Stock) */
+.menu-info-bulles {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 15px 0;
+    font-size: 0.85rem;
+    color: #777;
+}
+
+.menu-info-bulles span {
+    background: #f8f8f8;
+    padding: 4px 10px;
+    border-radius: 5px;
+    border: 1px solid #eee;
+}
+
+/* Alerte stock faible */
+.stock-info {
+    font-weight: bold;
+}
+
+.menu-price small {
+    font-size: 0.9rem;
+    color: #999;
+    font-weight: normal;
+}
+
+/* Le fond noir qui prend tout l'écran */
+.modal {
+    display: none; 
+    position: fixed; /* TRÈS IMPORTANT : fixe la modale par rapport à l'écran */
+    z-index: 9999; /* Pour passer devant TOUT (même le header) */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fond sombre transparent */
+    backdrop-filter: blur(4px); /* Petit effet de flou derrière */
+    overflow-y: auto; /* Permet de scroller DANS la modale si le texte est long */
+}
+
+/* La boîte blanche */
+.modal-content {
+    background-color: #fff;
+    margin: 5vh auto; /* 5% du haut de l'écran */
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 850px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    animation: modalAppear 0.3s ease-out;
+}
+
+@keyframes modalAppear {
+    from { opacity: 0; transform: translateY(-50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Le bouton de fermeture (X) */
+.close-modal {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #333;
+    z-index: 10;
+}
+
+/* ==========================================================================
+   6. FOOTER (Sombre)
+   ========================================================================== */
+.main-footer {
+    background: #34495E;
+    color: white;
+    padding: 60px 0 20px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 50px;
+    margin-bottom: 40px;
+}
+
+.footer-grid h3, .footer-grid h4 {
+    margin-bottom: 20px;
+    font-family: 'Playfair Display', serif;
+}
+
+.footer-links ul { list-style: none; }
+.footer-links a { color: white; text-decoration: none; font-size: 0.9rem; }
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 20px;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+/* --- RÈGLES RESPONSIVES POUR TÉLÉPHONES --- */
+@media screen and (max-width: 600px) {
+    /* 1. On force les conteneurs à prendre toute la largeur */
+    .login-card, .container, main {
+        width: 95% !important;
+        margin: 0 auto !important;
+        padding: 10px !important;
+    }
+
+    /* 2. On s'assure que les images ne dépassent pas */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* 3. On ajuste la taille de la police pour être lisible */
+    body {
+        font-size: 14px;
+    }
+}

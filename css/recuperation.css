@@ -1,0 +1,230 @@
+/* ==========================================================================
+   1. VARIABLES & RESET
+   ========================================================================== */
+:root {
+    --bordeaux: #800000;
+    --orange: #E67E22;
+    --creme: #FFFDF5;
+    --charbon: #2C3E50;
+    --blanc: #FFFFFF;
+    --gris-fond: #F9F9F9;
+    --gris-clair: #E0E0E0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: var(--creme);
+    color: var(--charbon);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ==========================================================================
+   2. HEADER & NAVIGATION
+   ========================================================================== */
+.main-header {
+    background: var(--creme);
+    padding: 10px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo img { height: 45px; }
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    margin: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--charbon);
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--bordeaux);
+}
+
+/* --- BLOC UTILISATEUR (NOM + DECO) --- */
+.nav-auth {
+    display: flex;
+    align-items: center;
+    min-width: 120px;
+    justify-content: flex-end;
+}
+
+.user-control {
+    display: flex !important;
+    flex-direction: column !important; /* Empile le nom et la déco */
+    align-items: center !important;
+    gap: 2px !important;
+}
+
+.user-badge {
+    background-color: var(--orange) !important;
+    color: white !important;
+    padding: 6px 18px !important;
+    border-radius: 20px !important;
+    font-weight: bold !important;
+    font-size: 0.85rem !important;
+    text-decoration: none !important;
+    display: block !important;
+    transition: 0.3s !important;
+    text-transform: capitalize;
+}
+
+.user-badge:hover {
+    background-color: var(--bordeaux) !important;
+    transform: translateY(-1px);
+}
+
+.logout-link {
+    font-size: 0.65rem !important;
+    color: var(--charbon) !important;
+    opacity: 0.7;
+    text-decoration: none !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.logout-link:hover {
+    opacity: 1;
+    color: var(--bordeaux) !important;
+    text-decoration: underline !important;
+}
+
+.btn-connexion {
+    background: var(--orange);
+    color: white;
+    padding: 10px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-connexion:hover {
+    background-color: #D35400;
+}
+
+/* ==========================================================================
+   PAGE RÉCUPÉRATION DE MOT DE PASSE
+   ========================================================================== */
+
+/* On utilise les mêmes styles que la connexion pour l'unité visuelle */
+
+.login-card .login-header h1 {
+    font-size: 1.8rem; /* Un peu plus petit car le titre est plus long */
+    margin-bottom: 15px;
+}
+
+/* Style spécifique pour le message d'instruction */
+.login-header p {
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+
+/* Animation douce pour l'apparition de la page */
+.login-container {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Style du lien de retour */
+.login-footer a {
+    display: inline-block;
+    margin-top: 10px;
+    color: var(--bordeaux);
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.login-footer a:hover {
+    color: var(--orange);
+    transform: translateX(-5px); /* Petit effet de flèche vers la gauche */
+}
+
+/* ==========================================================================
+   6. FOOTER (Sombre)
+   ========================================================================== */
+.main-footer {
+    background: #34495E;
+    color: white;
+    padding: 60px 0 20px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 50px;
+    margin-bottom: 40px;
+}
+
+.footer-grid h3, .footer-grid h4 {
+    margin-bottom: 20px;
+    font-family: 'Playfair Display', serif;
+}
+
+.footer-links ul { list-style: none; }
+.footer-links a { color: white; text-decoration: none; font-size: 0.9rem; }
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 20px;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+/* --- RÈGLES RESPONSIVES POUR TÉLÉPHONES --- */
+@media screen and (max-width: 600px) {
+    /* 1. On force les conteneurs à prendre toute la largeur */
+    .login-card, .container, main {
+        width: 95% !important;
+        margin: 0 auto !important;
+        padding: 10px !important;
+    }
+
+    /* 2. On s'assure que les images ne dépassent pas */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* 3. On ajuste la taille de la police pour être lisible */
+    body {
+        font-size: 14px;
+    }
+}
