@@ -103,7 +103,7 @@ $result_avis = mysqli_query($conn, $sql_avis);
 
     <section class="reviews">
         <div class="container">
-            <h2 class="section-title">Ce que nos clients dicen de nous</h2>
+            <h2 class="section-title">Ce que nos clients disent de nous</h2>
             <div class="reviews-grid">
                 
                 <?php if ($result_avis && mysqli_num_rows($result_avis) > 0): ?>
@@ -172,7 +172,7 @@ $result_avis = mysqli_query($conn, $sql_avis);
     <div class="container footer-grid">
         <div class="footer-about">
             <h3>Vite&Gourmand</h3>
-            <p>Votre traiteur bordelais d'exception pour tous vos événements.</p>
+            <p>Votre traiteur Bordelais d'exception pour tous vos événements.</p>
         </div>
         <div class="footer-hours">
             <h4>Nos Horaires</h4>
